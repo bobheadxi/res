@@ -1,4 +1,4 @@
-# res
+# res [![GoDoc](https://godoc.org/github.com/bobheadxi/res?status.svg)](https://godoc.org/github.com/bobheadxi/res)
 
 Package res provides handy primitives for working with JSON in Go HTTP servers
 via [`go-chi/render`](https://github.com/go-chi/render). It is designed to be
