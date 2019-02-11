@@ -25,10 +25,10 @@ go get -u github.com/bobheadxi/res
 import "github.com/bobheadxi/res"
 
 func main() {
-	resp, err := http.Get(os.Getenv("URL"))
-	if err != nil {
-		log.Fatal(err)
-	}
+  resp, err := http.Get(os.Getenv("URL"))
+  if err != nil {
+    log.Fatal(err)
+  }
   var info string
   b, err := res.Unmarshal(resp.Body, api.KV{Key: "info", Value: &info})
   if err != nil {
@@ -47,11 +47,11 @@ func main() {
 import "github.com/bobheadxi/res"
 
 func Handler(w http.ResponseWriter, r *http.Request) {
-	body, err := ioutil.ReadAll(r.Body)
-	if err != nil {
+  body, err := ioutil.ReadAll(r.Body)
+  if err != nil {
     render.Render(w, r, res.ErrBadRequest("failed to read request",
       "error", err))
-		return
+    return
   }
 
   render.Render(w, r, res.MsgOK("hello world!",
