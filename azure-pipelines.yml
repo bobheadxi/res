@@ -27,10 +27,7 @@ steps:
 - script: |
     go version
     go get -v -t -d ./...
-    if [ -f Gopkg.toml ]; then
-        curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
-        dep ensure
-    fi
+    go get -u golang.org/x/lint/golint
     go build -v .
   workingDirectory: '$(modulePath)'
   displayName: 'Get dependencies, then build'
@@ -38,6 +35,7 @@ steps:
 - script: |
     go fmt ./...
     golint $(go list ./... | grep -v /vendor/)
+    go vet ./...
   workingDirectory: '$(modulePath)'
   displayName: 'Run static analysis'
 

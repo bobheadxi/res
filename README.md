@@ -5,7 +5,7 @@ and clients via [`go-chi/render`](https://github.com/go-chi/render). It is
 designed to be lightweight and easy to extend.
 
 [![GoDoc](https://godoc.org/github.com/bobheadxi/res?status.svg)](https://godoc.org/github.com/bobheadxi/res)
-[![CI Status](https://dev.azure.com/bobheadxi/bobheadxi/_build/latest?definitionId=1&branchName=master)](https://dev.azure.com/bobheadxi/bobheadxi/_apis/build/status/github.res?branchName=master)
+[![CI Status](https://dev.azure.com/bobheadxi/bobheadxi/_build/latest?definitionId=1&branchName=master)](https://dev.azure.com/bobheadxi/bobheadxi/_apis/build/status/bobheadxi.res?branchName=master)
 
 I originally wrote something similar to this in two
 [UBC Launch Pad](https://www.ubclaunchpad.com/) projects that I worked on -
