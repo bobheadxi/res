@@ -1,8 +1,10 @@
-# res [![GoDoc](https://godoc.org/github.com/bobheadxi/res?status.svg)](https://godoc.org/github.com/bobheadxi/res)
+# res
 
 Package res provides handy primitives for working with JSON in Go HTTP servers
-via [`go-chi/render`](https://github.com/go-chi/render). It is designed to be
-lightweight and easy to extend.
+and clients via [`go-chi/render`](https://github.com/go-chi/render). It is
+designed to be lightweight and easy to extend.
+
+[![GoDoc](https://godoc.org/github.com/bobheadxi/res?status.svg)](https://godoc.org/github.com/bobheadxi/res)
 
 I originally wrote something similar to this in two
 [UBC Launch Pad](https://www.ubclaunchpad.com/) projects that I worked on -
@@ -30,7 +32,7 @@ func main() {
     log.Fatal(err)
   }
   var info string
-  b, err := res.Unmarshal(resp.Body, api.KV{Key: "info", Value: &info})
+  b, err := res.Unmarshal(resp.Body, res.KV{Key: "info", Value: &info})
   if err != nil {
     log.Fatal(err)
   }
@@ -43,6 +45,36 @@ func main() {
 
 ### Serverside
 
+#### OK
+
+```go
+import "github.com/bobheadxi/res"
+
+func Handler(w http.ResponseWriter, r *http.Request) {
+  render.Render(w, r, res.MsgOK("hello world!",
+    "stuff", "amazing",
+    "details", map[string]string{"world": "hello"}))
+}
+```
+
+Will render something like:
+
+```js
+{
+  "code": 200,
+  "message": "hello world",
+  "request_id": "12345",
+  "body": {
+    "stuff": "amazing",
+    "details": {
+      "world": "hello",
+    }
+  }
+}
+```
+
+#### Error
+
 ```go
 import "github.com/bobheadxi/res"
 
@@ -50,11 +82,23 @@ func Handler(w http.ResponseWriter, r *http.Request) {
   body, err := ioutil.ReadAll(r.Body)
   if err != nil {
     render.Render(w, r, res.ErrBadRequest("failed to read request",
-      "error", err))
+      "error", err,
+      "details", "something"))
     return
   }
+}
+```
 
-  render.Render(w, r, res.MsgOK("hello world!",
-    "details", map[string]string{"world": "hello"}))
+Will render something like:
+
+```js
+{
+  "code": 400,
+  "message": "failed to read request",
+  "request_id": "12345",
+  "error": "could not read body",
+  "body": {
+    "details": "something",
+  }
 }
 ```
