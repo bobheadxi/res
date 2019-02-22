@@ -3,9 +3,6 @@
 # Add steps that test, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/go
 
-trigger:
-- master
-
 pool:
   vmImage: 'Ubuntu-16.04'
 
@@ -29,7 +26,7 @@ steps:
 
 - script: |
     go version
-    go get -v -t -d -race ./...
+    go get -v -t -d ./...
     if [ -f Gopkg.toml ]; then
         curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
         dep ensure
@@ -37,3 +34,14 @@ steps:
     go build -v .
   workingDirectory: '$(modulePath)'
   displayName: 'Get dependencies, then build'
+
+- script: |
+    go fmt ./...
+    golint $(go list ./... | grep -v /vendor/)
+  workingDirectory: '$(modulePath)'
+  displayName: 'Run static analysis'
+
+- script: |
+    go test ./... -coverprofile=coverage.txt ./...
+  workingDirectory: '$(modulePath)'
+  displayName: 'Run tests and report coverage'
