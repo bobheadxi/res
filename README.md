@@ -24,6 +24,10 @@ go get -u github.com/bobheadxi/res
 
 ### Clientside
 
+I implemented something similar to `res` in [Inertia](https://github.com/ubclaunchpad/inertia).
+It has a client that shows how you might leverage this library:
+[`inertia/client.Client`](https://github.com/ubclaunchpad/inertia/blob/master/client/client.go)
+
 ```go
 import "github.com/bobheadxi/res"
 
