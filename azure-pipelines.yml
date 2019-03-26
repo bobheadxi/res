@@ -40,6 +40,11 @@ steps:
   displayName: 'Run static analysis'
 
 - script: |
-    go test ./... -coverprofile=coverage.txt ./...
+    go test -race -coverprofile=coverage.txt ./...
   workingDirectory: '$(modulePath)'
   displayName: 'Run tests and report coverage'
+
+- script: bash <(curl -s https://codecov.io/bash) -t $(CODECOV_TOKEN)
+  workingDirectory: '$(modulePath)'
+  displayName: 'Report coverage'
+  condition: succeeded()
