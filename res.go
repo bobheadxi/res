@@ -20,7 +20,7 @@ type KV struct {
 // requested key-value pairs.
 // For example:
 //
-// 	  var prop = map[string]string
+//    var prop = map[string]string
 //    api.Unmarshal(resp.Body, api.KV{Key: "prop", Value: &prop})
 //
 // Values provided in KV.Value MUST be explicit pointers, even if the value is
