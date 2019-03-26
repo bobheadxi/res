@@ -56,9 +56,9 @@ func main() {
 import "github.com/bobheadxi/res"
 
 func Handler(w http.ResponseWriter, r *http.Request) {
-  render.Render(w, r, res.MsgOK("hello world!",
+  res.R(w, r, res.MsgOK("hello world!",
     "stuff", "amazing",
-    "details", map[string]string{"world": "hello"}))
+    "details", res.M{"world": "hello"}))
 }
 ```
 
@@ -86,7 +86,7 @@ import "github.com/bobheadxi/res"
 func Handler(w http.ResponseWriter, r *http.Request) {
   body, err := ioutil.ReadAll(r.Body)
   if err != nil {
-    render.Render(w, r, res.ErrBadRequest("failed to read request",
+    res.R(w, r, res.ErrBadRequest("failed to read request",
       "error", err,
       "details", "something"))
     return

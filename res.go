@@ -5,9 +5,14 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
+	"net/http"
 
 	"github.com/bobheadxi/res/base"
+	"github.com/go-chi/render"
 )
+
+// M is an alias for a map
+type M map[string]interface{}
 
 // KV is used for defining specific values to be unmarshalled from BaseResponse
 // data
@@ -48,3 +53,6 @@ func Unmarshal(r io.Reader, kvs ...KV) (*base.Response, error) {
 
 	return &resp, nil
 }
+
+// R is an alias for go-chi/render.Render
+func R(w http.ResponseWriter, r *http.Request, v render.Renderer) { render.Render(w, r, v) }
