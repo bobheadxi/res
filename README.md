@@ -6,6 +6,7 @@ designed to be lightweight and easy to extend.
 
 [![GoDoc](https://godoc.org/github.com/bobheadxi/res?status.svg)](https://godoc.org/github.com/bobheadxi/res)
 [![CI Status](https://dev.azure.com/bobheadxi/bobheadxi/_apis/build/status/bobheadxi.res?branchName=master)](https://dev.azure.com/bobheadxi/bobheadxi/_build/latest?definitionId=1&branchName=master)
+[![Go Report Card](https://goreportcard.com/badge/github.com/bobheadxi/res)](https://goreportcard.com/report/github.com/bobheadxi/res)
 ![Sourcegraph for Repo Reference Count](https://img.shields.io/sourcegraph/rrc/github.com/bobheadxi/res.svg)
 
 I originally wrote something similar to this in two
