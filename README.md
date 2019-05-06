@@ -4,10 +4,9 @@ Package res provides handy primitives for working with JSON in Go HTTP servers
 and clients via [`go-chi/render`](https://github.com/go-chi/render). It is
 designed to be lightweight and easy to extend.
 
-[![GoDoc](https://godoc.org/github.com/bobheadxi/res?status.svg)](https://godoc.org/github.com/bobheadxi/res)
+[![GoDoc](https://godoc.org/go.bobheadxi.dev/res?status.svg)](https://godoc.org/go.bobheadxi.dev/res)
 [![CI Status](https://dev.azure.com/bobheadxi/bobheadxi/_apis/build/status/bobheadxi.res?branchName=master)](https://dev.azure.com/bobheadxi/bobheadxi/_build/latest?definitionId=1&branchName=master)
-[![Go Report Card](https://goreportcard.com/badge/github.com/bobheadxi/res)](https://goreportcard.com/report/github.com/bobheadxi/res)
-[![Sourcegraph for Repo Reference Count](https://img.shields.io/sourcegraph/rrc/github.com/bobheadxi/res.svg)](https://sourcegraph.com/github.com/bobheadxi/res)
+[![Go Report Card](https://goreportcard.com/badge/go.bobheadxi.dev/res)](https://goreportcard.com/report/go.bobheadxi.dev/res)
 
 I originally wrote something similar to this in two
 [UBC Launch Pad](https://www.ubclaunchpad.com/) projects that I worked on -
@@ -21,7 +20,7 @@ and add more robust tests.
 ## Usage
 
 ```sh
-go get -u github.com/bobheadxi/res
+go get -u go.bobheadxi.dev/res
 ```
 
 ### Clientside
@@ -31,7 +30,7 @@ It has a client that shows how you might leverage this library:
 [`inertia/client.Client`](https://github.com/ubclaunchpad/inertia/blob/master/client/client.go)
 
 ```go
-import "github.com/bobheadxi/res"
+import "go.bobheadxi.dev/res"
 
 func main() {
   resp, err := http.Get(os.Getenv("URL"))
@@ -55,7 +54,7 @@ func main() {
 #### OK
 
 ```go
-import "github.com/bobheadxi/res"
+import "go.bobheadxi.dev/res"
 
 func Handler(w http.ResponseWriter, r *http.Request) {
   res.R(w, r, res.MsgOK("hello world!",
@@ -83,7 +82,7 @@ Will render something like:
 #### Error
 
 ```go
-import "github.com/bobheadxi/res"
+import "go.bobheadxi.dev/res"
 
 func Handler(w http.ResponseWriter, r *http.Request) {
   body, err := ioutil.ReadAll(r.Body)

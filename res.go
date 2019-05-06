@@ -7,7 +7,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/bobheadxi/res/base"
+	"go.bobheadxi.dev/res/base"
 	"github.com/go-chi/render"
 )
 

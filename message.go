@@ -3,7 +3,7 @@ package res
 import (
 	"net/http"
 
-	"github.com/bobheadxi/res/base"
+	"go.bobheadxi.dev/res/base"
 )
 
 // MsgResponse is the template for a typical HTTP response for messages

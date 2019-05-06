@@ -1,4 +1,4 @@
-module github.com/bobheadxi/res
+module go.bobheadxi.dev/res
 
 go 1.12
 
