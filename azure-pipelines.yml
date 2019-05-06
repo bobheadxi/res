@@ -10,9 +10,14 @@ variables:
   GOBIN:  '$(GOPATH)/bin' # Go binaries path
   GOROOT: '/usr/local/go1.11' # Go installation path
   GOPATH: '$(system.defaultWorkingDirectory)/gopath' # Go workspace path
-  modulePath: '$(GOPATH)/src/github.com/$(build.repository.name)' # Path to the module's code
+  GO111MODULE: 'on'
+  modulePath: '$(GOPATH)/src/go.bobheadxi.dev/res'
 
 steps:
+- task: GoTool@0
+  inputs:
+    version: '1.12'
+
 - script: |
     mkdir -p '$(GOBIN)'
     mkdir -p '$(GOPATH)/pkg'
@@ -28,14 +33,13 @@ steps:
     go version
     go get -v -t -d ./...
     go get -u golang.org/x/lint/golint
-    go build -v .
   workingDirectory: '$(modulePath)'
-  displayName: 'Get dependencies, then build'
+  displayName: 'Get dependencies'
 
 - script: |
+    go vet ./...
     go fmt ./...
     golint $(go list ./... | grep -v /vendor/)
-    go vet ./...
   workingDirectory: '$(modulePath)'
   displayName: 'Run static analysis'
 
