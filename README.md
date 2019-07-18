@@ -7,6 +7,7 @@ designed to be lightweight and easy to extend.
 [![GoDoc](https://godoc.org/go.bobheadxi.dev/res?status.svg)](https://godoc.org/go.bobheadxi.dev/res)
 [![CI Status](https://dev.azure.com/bobheadxi/bobheadxi/_apis/build/status/bobheadxi.res?branchName=master)](https://dev.azure.com/bobheadxi/bobheadxi/_build/latest?definitionId=1&branchName=master)
 [![Go Report Card](https://goreportcard.com/badge/go.bobheadxi.dev/res)](https://goreportcard.com/report/go.bobheadxi.dev/res)
+![Sourcegraph for Repo Reference Count](https://img.shields.io/sourcegraph/rrc/github.com/bobheadxi/res.svg)
 
 I originally wrote something similar to this in two
 [UBC Launch Pad](https://www.ubclaunchpad.com/) projects that I worked on -
