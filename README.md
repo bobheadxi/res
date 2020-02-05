@@ -4,7 +4,7 @@ Package res provides handy primitives for working with JSON in Go HTTP servers
 and clients via [`go-chi/render`](https://github.com/go-chi/render). It is
 designed to be lightweight and easy to extend.
 
-[![GoDoc](https://godoc.org/go.bobheadxi.dev/res?status.svg)](https://godoc.org/go.bobheadxi.dev/res)
+[![GoDoc](https://img.shields.io/badge/go.pkg.dev-reference-5272B4)](https://pkg.go.dev/go.bobheadxi.dev/res)
 [![CI Status](https://dev.azure.com/bobheadxi/bobheadxi/_apis/build/status/bobheadxi.res?branchName=master)](https://dev.azure.com/bobheadxi/bobheadxi/_build/latest?definitionId=1&branchName=master)
 [![Go Report Card](https://goreportcard.com/badge/go.bobheadxi.dev/res)](https://goreportcard.com/report/go.bobheadxi.dev/res)
 ![Sourcegraph for Repo Reference Count](https://img.shields.io/sourcegraph/rrc/github.com/bobheadxi/res.svg)
